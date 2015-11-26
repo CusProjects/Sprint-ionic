@@ -1,0 +1,72 @@
+<ion-view view-title="Details">
+    <ion-content>
+        <style>
+            .list .item.item-accordion {
+                line-height: 38px;
+                padding-top: 0;
+                padding-bottom: 0;
+                transition: 0.09s all linear;
+            }
+            .list .item.item-accordion.ng-hide {
+                line-height: 0px;
+            }
+            .list .item.item-accordion.ng-hide-add,
+            .list .item.item-accordion.ng-hide-remove {
+                display: block !important;
+            }
+        </style>
+
+        <div class="list">
+            <a class="item item-thumbnail-left" href="#">
+                <img src="{{project.logoUrl}}">
+                <h2>Project Name: <b>{{project.name}}</b></h2>
+                <p>{{project.creationDate}}</p>
+            </a>
+
+        </div>
+        <div class="item item-assertive item-divider">
+            Stacks
+        </div>
+        <ion-list>
+            <div ng-repeat="stack in data.stacks">
+                <ion-item class="item-positive "
+                          ng-click="toggleGroup(stack)"
+                          ng-class="{active: isGroupShown(stack)}">
+                    <i class="icon" ng-class="isGroupShown(stack) ? 'ion-minus' : 'ion-plus'"></i>
+                     {{stack.name}}
+
+                    <progress max="100" value="{{ stack.progress }}"> </progress>
+                    <div style="text-align: center">{{ stack.progress }} %</div>
+                </ion-item>
+
+
+                <ion-item ng-if="task.state === 'E'" class="item-accordion item-icon-right item-balanced"
+                          ng-repeat="task in stack.items"
+                          ng-show="isGroupShown(stack)">
+                    <i class="icon ion-checkmark-circled"></i>
+                    {{task.name}}
+                </ion-item>
+                <ion-item ng-if="task.state === 'P'" class="item-accordion item-icon-right item-positive"
+                          ng-repeat="task in stack.items"
+                          ng-show="isGroupShown(stack)">
+                    <i class="icon ion-loop"></i>
+                    {{task.name}}
+                </ion-item>
+                <ion-item ng-if="task.state === 'F'" class="item-accordion item-icon-right item-stable"
+                          ng-repeat="task in stack.items"
+                          ng-show="isGroupShown(stack)">
+                    <i class="icon ion-plus-round"></i>
+                    {{task.name}}
+                </ion-item>
+
+            </div>
+        </ion-list>
+        <div class="item item-assertive item-divider">
+            Total Project Progress
+        </div>
+        <ion-item class="item-dark">
+            <progress id="progressbar" max="100" value="{{ progress }}"> </progress>
+            <div style="text-align: center" id="progressbarlabel">{{ progress }} %</div>
+        </ion-item>
+    </ion-content>
+</ion-view>

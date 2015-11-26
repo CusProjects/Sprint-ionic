@@ -1,0 +1,20 @@
+<ion-view view-title="Playlist">
+    <ion-content>
+    <ion-item class="item-icon-left item-balanced">
+        <i class="icon ion-android-add"></i>
+        New Project
+    </ion-item>
+        <form class="list" method="POST">
+            <label class="item item-input">
+                <input ng-model="project.name" name="name" type="text" placeholder="Name">
+            </label>
+            <label class="item item-input">
+                <input ng-model="project.logoUrl" name="logoUrl" type="text" placeholder="Logo url">
+            </label>
+            <label class="item item-input">
+                <input ng-model="project.frontUrl" name="frontUrl" type="text" placeholder="Cover url">
+            </label>
+            <button ng-click="saveProject(project)" class="button button-full button-positive">Save</button>
+        </form>
+    </ion-content>
+</ion-view>
