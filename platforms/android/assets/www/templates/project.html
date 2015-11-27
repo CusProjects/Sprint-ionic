@@ -58,9 +58,13 @@
                     <i class="icon ion-plus-round"></i>
                     {{task.name}}
                 </ion-item>
+                <ion-item class="item-accordion item-stable" ng-show="isGroupShown(stack)">
+                   <a href="#/app/addTask/{{stack.id}}" class="button button-royal button-full">+ Add task</a>
+                </ion-item>
 
             </div>
         </ion-list>
+        <a class="button button-full button-balanced" href="#/app/addStack/{{project.id}}"><b>+</b> Add Stack</a>
         <div class="item item-assertive item-divider">
             Total Project Progress
         </div>

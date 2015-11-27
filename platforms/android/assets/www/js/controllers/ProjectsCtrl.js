@@ -89,3 +89,19 @@ app.controller('DetailsProjectCtrl', function($scope, $stateParams, StacksData, 
         }
     }
 });
+
+app.controller('AddProjectCtrl', function($scope, $location ,ProjectsData){
+
+    $scope.saveProject = function(newProject){
+
+        if(newProject.name !== "" && newProject.logoUrl !== "" && newProject.frontUrl != ""){
+            ProjectsData.addProject(newProject).success(function(data){
+                //$location.path('#/app/projects');
+                $window.history.back();
+                $window.location.reload();
+            });
+        }
+
+
+    }
+});

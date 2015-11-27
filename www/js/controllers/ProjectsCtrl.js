@@ -96,7 +96,9 @@ app.controller('AddProjectCtrl', function($scope, $location ,ProjectsData){
 
         if(newProject.name !== "" && newProject.logoUrl !== "" && newProject.frontUrl != ""){
             ProjectsData.addProject(newProject).success(function(data){
-                $location.path('#/app/projects');
+                //$location.path('#/app/projects');
+                $window.history.back();
+                $window.location.reload();
             });
         }
 

@@ -9,6 +9,13 @@ app.factory('StacksData', ['$http', function($http){
     StacksData.getStacks = function (idProyect){
         return $http.get( urlBase + 'stacks/proyect/' + idProyect );
     };
+    StacksData.getStack = function (idStack) {
+        return $http.get( urlBase + 'stacks/' + idStack);
+    }
+
+    StacksData.addStack = function(stack){
+        return $http.post(urlBase + 'stacks', stack);
+    };
     return StacksData;
 
 }]);

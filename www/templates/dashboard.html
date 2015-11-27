@@ -1,0 +1,25 @@
+<ion-view view-title="AddTask">
+    <ion-content>
+        <ion-list class="card">
+            <ion-item class="item-avatar">
+                <img src="{{user.foto}}">
+                <h2>{{user.name}}</h2>
+                <p>{{user.email}}</p>
+            </ion-item>
+            <ion-item class="item-body">
+                <ion-list>
+                    <ion-item ng-if="task.state === 'E'" class="item-icon-right item-balanced"
+                              ng-repeat="task in data.tasks">
+                        <i class="icon ion-checkmark-circled"></i>
+                        {{task.name}}
+                    </ion-item>
+                    <ion-item ng-if="task.state === 'P'" class=" item-icon-right item-positive"
+                              ng-repeat="task in data.tasks">
+                        <i class="icon ion-loop"></i>
+                        {{task.name}}
+                    </ion-item>
+                </ion-list>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

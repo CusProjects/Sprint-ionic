@@ -31,7 +31,25 @@ var app = angular.module('starter', ['ionic', 'starter.controllers'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
+      .state('app.login',{
+            url: '/login',
+            views:{
+                'menuContent':{
+                    templateUrl: 'templates/login.html',
+                    controller: 'AppCtrl'
+                }
+            }
+        })
 
+      .state('app.dashboard', {
+          url: '/dashboard',
+          views:{
+              'menuContent':{
+                  templateUrl: 'templates/dashboard.html',
+                  controller: 'DashboardCtrl'
+              }
+          }
+      })
 
       .state('app.projects', {
           url: '/projects',
@@ -63,25 +81,27 @@ var app = angular.module('starter', ['ionic', 'starter.controllers'])
           }
       })
 
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
+      .state('app.addStack', {
+          url: '/addStack/:projectId',
+          views:{
+              'menuContent':{
+                  templateUrl: 'templates/addStack.html',
+                  controller: 'StacksCtrl'
+              }
+          }
+      })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  });
+      .state('app.addTask', {
+          url: '/addTask/:stackId',
+          views:{
+              'menuContent':{
+                  templateUrl: 'templates/addTask.html',
+                  controller: 'TasksCtrl'
+              }
+          }
+      })
+
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/projects');
 });

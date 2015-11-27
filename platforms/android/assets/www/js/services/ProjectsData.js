@@ -15,6 +15,7 @@ app.factory('ProjectsData', ['$http', function($http){
 		return $http.post(urlBase + 'proyects', project);
 	};
 
+
     ProjectsData.getProgress = function(id){
         return $http.get(urlBase + 'proyects/tasks/' +id);
     }

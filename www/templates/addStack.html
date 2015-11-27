@@ -1,0 +1,13 @@
+<ion-view view-title="AddStack">
+    <ion-content>
+        <ion-item class="item item-divider">
+            New Stack : <b>{{project.name}}</b>
+        </ion-item>
+        <form class="list" method="POST">
+            <label class="item item-input">
+                <input ng-model="stack.name" name="name" type="text" placeholder="Name">
+            </label>
+            <button ng-click="saveStack(stack)" class="button button-outline button-full button-positive">Save</button>
+        </form>
+    </ion-content>
+</ion-view>

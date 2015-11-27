@@ -1,0 +1,21 @@
+<ion-view view-title="AddTask">
+    <ion-content>
+        <ion-item class="item item-divider">
+            New Task <br/>
+            Stack: <b>{{stack.name}}</b>
+        </ion-item>
+        <form class="list list-inset" method="POST">
+            <label class="item item-input">
+                <input ng-model="task.name" name="name" type="text" placeholder="Name">
+                <input disabled="disabled" type="text" ng-model="descripcion" class="form-control"/>
+            </label>
+            <label class="item item-select">
+                <div class="input-label">
+                    Difficulty
+                </div>
+                <select ng-options="dif as dif.value for dif in data.difficulties " ng-model="task.difficulty"></select>
+            </label>
+            <button ng-click="saveTask(task)" class="button button-outline button-full button-positive">Save</button>
+        </form>
+    </ion-content>
+</ion-view>
